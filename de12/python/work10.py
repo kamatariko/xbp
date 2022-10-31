@@ -1,3 +1,4 @@
+import code
 import random
 
 # Constants
@@ -9,7 +10,7 @@ print("ようこそ、ブラックジャックです。")
 print("あなたは、自分のカードが２１に近づくようにカードをひくかひかないか賭けをしていただきます。")
 
 people=int(input("何人でプレーしますか。（1～3名・数字のみ記入)"))
-
+print("かしこまりました。")
 print("ルール説明")
 print("初めにプレイヤーには２枚ずつのカードが配られます。")
 print("その後自分の手持ちカードの合計数をみて、２１に近づけるように次のカードをひくかひかないかの選択ができます。")
@@ -150,7 +151,7 @@ def main():
             
             # プレーヤーがバースト。
             if player_hand.value > 21:
-                player_busts(player_hand, dealer_hand, money)
+                player_busts(player_hand, dealer_hand)
                 break
         
         # プレーヤーがバーストしなければディーラーのターン。        
@@ -165,14 +166,14 @@ def main():
             show_cards_last(player_hand,dealer_hand) 
             # ディーラがバースト
             if dealer_hand.value > 21:
-                dealer_busts(player_hand, dealer_hand, money)
+                dealer_busts(player_hand, dealer_hand)
                 count_win += 1
             # ディーラーの勝ち
             elif dealer_hand.value > player_hand.value:
-                dealer_wins(player_hand, dealer_hand, money)
+                dealer_wins(player_hand, dealer_hand)
             # プレーヤーの勝ち
             elif dealer_hand.value < player_hand.value:
-                player_wins(player_hand, dealer_hand, money)
+                player_wins(player_hand, dealer_hand)
                 count_win += 1
             # 引き分け
             else:
@@ -187,7 +188,3 @@ def main():
         else:
             print("\nゲームを終了します。")
             break
-
-
-if __name__ == '__main__':
-    main()
