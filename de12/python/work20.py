@@ -16,24 +16,24 @@ def create_layout(cal_date):
     inner = []
     
     for week in weekday:
-        inner.append(sg.Text(week, size=(4,1), text_color='white', background_color='green', justification='center'))
+        inner.append(sg.Text(week, size=(12,3), text_color='white', background_color='pink', justification='center'))
     layout.append(inner.copy())
 
     def date_judgement(i, day):
         if day == today:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='white', background_color='gray')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='white', background_color='gray')
         elif i == 0 and day.month == cal_date.month:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='red')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='red')
         elif i == 6 and day.month == cal_date.month:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='blue')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='blue')
         elif day.month == cal_date.month:
-            return sg.Text(day.day, size=(4,1), justification='right')
+            return sg.Text(day.day, size=(12,3), justification='right')
         elif i == 0:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='#ff9999')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='#ff9999')
         elif i == 6:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='#9999ff')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='#9999ff')
         else:
-            return sg.Text(day.day, size=(4,1), justification='right', text_color='#cccccc')
+            return sg.Text(day.day, size=(12,3), justification='right', text_color='#cccccc')
 
     for row in days:
         inner = []
